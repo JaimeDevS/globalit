@@ -18,6 +18,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String senha;
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Conta> contas = new ArrayList<>();
@@ -45,6 +46,14 @@ public class Usuario {
 		this.nome = nome;
 	}
 	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public List<Conta> getContas() {
 		return contas;
 	}
