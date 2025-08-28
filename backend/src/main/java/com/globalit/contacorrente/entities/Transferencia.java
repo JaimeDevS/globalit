@@ -2,6 +2,8 @@ package com.globalit.contacorrente.entities;
 
 import java.time.Instant;
 
+import com.globalit.contacorrente.entities.enums.StatusTransferencia;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,10 +28,11 @@ public class Transferencia {
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant dataAgendamento;
+	
+	private StatusTransferencia status;
 
 	public Transferencia(Integer id, Conta contaOrigem, Conta contaDestino, Double valor, Float taxa,
-			Instant dataTransferencia, Instant dataAgendamento) {
-		super();
+			Instant dataTransferencia, Instant dataAgendamento, StatusTransferencia status) {
 		this.id = id;
 		this.contaOrigem = contaOrigem;
 		this.contaDestino = contaDestino;
@@ -37,6 +40,7 @@ public class Transferencia {
 		this.taxa = taxa;
 		this.dataTransferencia = dataTransferencia;
 		this.dataAgendamento = dataAgendamento;
+		this.status = status;
 	}
 
 	public Integer getId() {
@@ -94,7 +98,13 @@ public class Transferencia {
 	public void setDataAgendamento(Instant dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
 	}
-	
-	
+
+	public StatusTransferencia getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusTransferencia status) {
+		this.status = status;
+	}
 
 }
