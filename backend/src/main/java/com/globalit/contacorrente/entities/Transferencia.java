@@ -6,9 +6,13 @@ import com.globalit.contacorrente.entities.enums.StatusTransferencia;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,8 +22,15 @@ public class Transferencia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name = "conta_origem_id")
 	private Conta contaOrigem;
+	
+	@ManyToOne
+	@JoinColumn(name = "conta_destino_id")
 	private Conta contaDestino;
+	
 	private Double valor;
 	private Float taxa;
 	
@@ -29,6 +40,7 @@ public class Transferencia {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant dataAgendamento;
 	
+	@Enumerated(EnumType.STRING)
 	private StatusTransferencia status;
 
 	public Transferencia(Integer id, Conta contaOrigem, Conta contaDestino, Double valor, Float taxa,
