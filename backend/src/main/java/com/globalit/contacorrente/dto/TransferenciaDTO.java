@@ -1,24 +1,27 @@
 package com.globalit.contacorrente.dto;
 
-import java.time.Instant;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-import com.globalit.contacorrente.entities.Conta;
 import com.globalit.contacorrente.entities.Transferencia;
 import com.globalit.contacorrente.entities.enums.StatusTransferencia;
 
 public class TransferenciaDTO {
 
 	private Integer id;
-	private Conta contaOrigem;
-	private Conta contaDestino;
-	private Double valor;
-	private Float taxa;
-	private Instant dataTransferencia;
-	private Instant dataAgendamento;
+	private Integer contaOrigem;
+	private Integer contaDestino;
+	private BigDecimal valor;
+	private BigDecimal taxa;
+	private LocalDate dataTransferencia;
+	private LocalDate dataAgendamento;
 	private StatusTransferencia status;
 	
-	public TransferenciaDTO(Integer id, Conta contaOrigem, Conta contaDestino, Double valor, Float taxa,
-			Instant dataTransferencia, Instant dataAgendamento, StatusTransferencia status) {
+	public TransferenciaDTO() {
+	}
+	
+	public TransferenciaDTO(Integer id, Integer contaOrigem, Integer contaDestino, BigDecimal valor, BigDecimal taxa,
+			LocalDate dataTransferencia, LocalDate dataAgendamento, StatusTransferencia status) {
 		this.id = id;
 		this.contaOrigem = contaOrigem;
 		this.contaDestino = contaDestino;
@@ -31,8 +34,8 @@ public class TransferenciaDTO {
 	
 	public TransferenciaDTO(Transferencia entity) {
 		this.id = entity.getId();
-		this.contaOrigem = entity.getContaOrigem();
-		this.contaDestino = entity.getContaDestino();
+		this.contaOrigem = entity.getContaOrigem().getId();
+		this.contaDestino = entity.getContaDestino().getId();
 		this.valor = entity.getValor();
 		this.taxa = entity.getTaxa();
 		this.dataTransferencia = entity.getDataTransferencia();
@@ -48,51 +51,51 @@ public class TransferenciaDTO {
 		this.id = id;
 	}
 
-	public Conta getContaOrigem() {
+	public Integer getContaOrigem() {
 		return contaOrigem;
 	}
 
-	public void setContaOrigem(Conta contaOrigem) {
+	public void setContaOrigem(Integer contaOrigem) {
 		this.contaOrigem = contaOrigem;
 	}
 
-	public Conta getContaDestino() {
+	public Integer getContaDestino() {
 		return contaDestino;
 	}
 
-	public void setContaDestino(Conta contaDestino) {
+	public void setContaDestino(Integer contaDestino) {
 		this.contaDestino = contaDestino;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
-	public Float getTaxa() {
+	public BigDecimal getTaxa() {
 		return taxa;
 	}
 
-	public void setTaxa(Float taxa) {
+	public void setTaxa(BigDecimal taxa) {
 		this.taxa = taxa;
 	}
 
-	public Instant getDataTransferencia() {
+	public LocalDate getDataTransferencia() {
 		return dataTransferencia;
 	}
 
-	public void setDataTransferencia(Instant dataTransferencia) {
+	public void setDataTransferencia(LocalDate dataTransferencia) {
 		this.dataTransferencia = dataTransferencia;
 	}
 
-	public Instant getDataAgendamento() {
+	public LocalDate getDataAgendamento() {
 		return dataAgendamento;
 	}
 
-	public void setDataAgendamento(Instant dataAgendamento) {
+	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
 	}
 

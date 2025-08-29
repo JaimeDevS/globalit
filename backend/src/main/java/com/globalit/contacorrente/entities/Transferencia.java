@@ -1,10 +1,10 @@
 package com.globalit.contacorrente.entities;
 
-import java.time.Instant;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import com.globalit.contacorrente.entities.enums.StatusTransferencia;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -31,20 +31,23 @@ public class Transferencia {
 	@JoinColumn(name = "conta_destino_id")
 	private Conta contaDestino;
 	
-	private Double valor;
-	private Float taxa;
+	private BigDecimal valor;
+	private BigDecimal taxa;
 	
-	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant dataTransferencia;
+	//@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private LocalDate dataTransferencia;
 	
-	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant dataAgendamento;
+	//@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private LocalDate dataAgendamento;
 	
 	@Enumerated(EnumType.STRING)
 	private StatusTransferencia status;
+	
+	public Transferencia() {
+	}
 
-	public Transferencia(Integer id, Conta contaOrigem, Conta contaDestino, Double valor, Float taxa,
-			Instant dataTransferencia, Instant dataAgendamento, StatusTransferencia status) {
+	public Transferencia(Integer id, Conta contaOrigem, Conta contaDestino, BigDecimal valor, BigDecimal taxa,
+			LocalDate dataTransferencia, LocalDate dataAgendamento, StatusTransferencia status) {
 		this.id = id;
 		this.contaOrigem = contaOrigem;
 		this.contaDestino = contaDestino;
@@ -55,6 +58,17 @@ public class Transferencia {
 		this.status = status;
 	}
 
+//	public Transferencia(TransferenciaDTO dto) {
+//		this.id = dto.getId();
+////		this.contaOrigem = dto.getContaOrigem();
+////		this.contaDestino = entity.getContaDestino();
+//		this.valor = dto.getValor();
+//		this.taxa = dto.getTaxa();
+//		this.dataTransferencia = dto.getDataTransferencia();
+//		this.dataAgendamento = dto.getDataAgendamento();
+//		this.status = dto.getStatus();
+//	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -79,35 +93,35 @@ public class Transferencia {
 		this.contaDestino = contaDestino;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
-	public Float getTaxa() {
+	public BigDecimal getTaxa() {
 		return taxa;
 	}
 
-	public void setTaxa(Float taxa) {
+	public void setTaxa(BigDecimal taxa) {
 		this.taxa = taxa;
 	}
 
-	public Instant getDataTransferencia() {
+	public LocalDate getDataTransferencia() {
 		return dataTransferencia;
 	}
 
-	public void setDataTransferencia(Instant dataTransferencia) {
+	public void setDataTransferencia(LocalDate dataTransferencia) {
 		this.dataTransferencia = dataTransferencia;
 	}
 
-	public Instant getDataAgendamento() {
+	public LocalDate getDataAgendamento() {
 		return dataAgendamento;
 	}
 
-	public void setDataAgendamento(Instant dataAgendamento) {
+	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
 	}
 
