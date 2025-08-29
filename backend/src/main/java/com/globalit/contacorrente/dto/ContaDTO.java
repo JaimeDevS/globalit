@@ -1,16 +1,15 @@
 package com.globalit.contacorrente.dto;
 
 import com.globalit.contacorrente.entities.Conta;
-import com.globalit.contacorrente.entities.Usuario;
 
 public class ContaDTO {
 
 	private Integer id;
 	private Integer numeroConta;
-	private Usuario usuario;
+	private String usuario;
 	private Double saldo;
 	
-	public ContaDTO(Integer id, Integer numeroConta, Usuario usuario, Double saldo) {
+	public ContaDTO(Integer id, Integer numeroConta, String usuario, Double saldo) {
 		this.id = id;
 		this.numeroConta = numeroConta;
 		this.usuario = usuario;
@@ -20,7 +19,7 @@ public class ContaDTO {
 	public ContaDTO(Conta entity) {
 		this.id = entity.getId();
 		this.numeroConta = entity.getNumeroConta();
-		this.usuario = entity.getUsuario();
+		this.usuario = entity.getUsuario().getNome();
 		this.saldo = entity.getSaldo();
 	}
 
@@ -40,11 +39,11 @@ public class ContaDTO {
 		this.numeroConta = numeroConta;
 	}
 
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
