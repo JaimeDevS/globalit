@@ -93,7 +93,7 @@ projeto-transferencias/
    ```
    http://localhost:3000   (Vue CLI)
    ```
-> OBS. usar um navegador de teste con CORS desabilitado
+> OBS. usar um navegador de teste com CORS desabilitado
 ---
 
 ## ✅ Testando no Postman
