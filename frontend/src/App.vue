@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Bank />
+      <router-view></router-view>
     </v-main>
 
     <AppFooter />
@@ -9,7 +9,5 @@
 </template>
 
 <script setup>
-import Bank from './views/bank.vue';
 
-  //
 </script>

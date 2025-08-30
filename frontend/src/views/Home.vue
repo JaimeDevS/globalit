@@ -1,0 +1,44 @@
+<template>
+  <v-app id="inspire">
+    <v-app-bar>
+
+      <v-app-bar-title>Global TI Bank - Avaliação Pratica Java</v-app-bar-title>
+      <v-spacer></v-spacer>
+
+       <div>
+        <div class="d-flex flex-row-reverse bg-surface-variant2 pa-2 ">
+          <div class="mt-6" style="width: 250px;">
+            <v-text-field variant="outlined" label="Informe o número da conta" density="compact"></v-text-field>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="d-flex flex-row-reverse bg-surface-variant2 pa-2 ">
+          <div class="pa-2" style="width: 100px;">
+            <v-btn class="bg-blue-darken-2" @click="$router.push('/bank')">Acessar</v-btn>
+          </div>
+        </div>
+      </div>
+    </v-app-bar>
+
+    <v-main class="bg-grey-lighten-2">
+      <v-container>
+        <v-row>
+          <v-col>
+            <h1>Olá, seja bem vindo!</h1>
+            <h4>Informe o número da sua conta para efeturar suas Transferências e gerar seus extratos</h4>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
+</template>
+<script>
+export default {
+  data: () => ({
+  }),
+  methods: {
+  }
+}
+</script>
