@@ -86,7 +86,7 @@ projeto-transferencias/
    ```
    ou  
    ```bash
-   npm run serve
+   npm run dev
    ```
 
 4. Acesse no navegador:  
