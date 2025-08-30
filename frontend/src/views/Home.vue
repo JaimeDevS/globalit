@@ -5,7 +5,7 @@
       <v-app-bar-title>Global TI Bank - Avaliação Pratica Java</v-app-bar-title>
       <v-spacer></v-spacer>
 
-       <div>
+      <div>
         <div class="d-flex flex-row-reverse bg-surface-variant2 pa-2 ">
           <div class="mt-6" style="width: 250px;">
             <v-text-field variant="outlined" label="Informe o número da conta" density="compact"></v-text-field>
@@ -29,16 +29,41 @@
             <h1>Olá, seja bem vindo!</h1>
             <h4>Informe o número da sua conta para efeturar suas Transferências e gerar seus extratos</h4>
           </v-col>
+          <v-col>
+            teste
+            <ul>
+              <li v-for="(conta, i) in contas" :key="i">teste {{ conta.numeroConta }}</li>
+            </ul>
+          </v-col>
         </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
 <script>
+import { api } from '@/services/api'
+
 export default {
+  name: 'Home',
   data: () => ({
+    contas: [],
+    error: null
   }),
   methods: {
+    async buscarContas() {
+      try {
+        const response = await api.get('/contas')
+        console.log(response.data)
+        this.contas = response.data
+      } catch (error) {
+        console.error('Erro:', error)
+      } finally {
+        this.loading = false
+      }
+    },
+  },
+  mounted() {
+    this.buscarContas()
   }
 }
 </script>
