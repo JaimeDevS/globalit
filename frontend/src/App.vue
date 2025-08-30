@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <Bank />
     </v-main>
 
     <AppFooter />
@@ -9,5 +9,7 @@
 </template>
 
 <script setup>
+import Bank from './views/bank.vue';
+
   //
 </script>
