@@ -1,5 +1,8 @@
 package com.globalit.contacorrente.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +17,12 @@ public class ContaService {
 
 	@Autowired
 	private ContaRepository repository;
+	
+	@Transactional(readOnly = true)
+	public List<ContaDTO> listar() {
+		List<Conta> list = repository.findAll();
+		return list.stream().map(ContaDTO::new).collect(Collectors.toList());
+	}
 
 	@Transactional(readOnly = true)
 	public ContaDTO findById(Integer id) {
@@ -23,7 +32,7 @@ public class ContaService {
 	}
 	
 	@Transactional(readOnly = true)
-	public ContaDTO findByNumeroConta(Integer numeroConta) {
+	public ContaDTO findByNumeroConta(Long numeroConta) {
 		Conta conta = repository.findByNumeroConta(numeroConta)
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		return new ContaDTO(conta);

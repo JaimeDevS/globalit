@@ -42,6 +42,7 @@ public class TransferenciaService {
 		return new TransferenciaDTO(transferencia);
 	}
 
+	@Transactional
 	public TransferenciaDTO transferirSaldoOuAgendarTransferecia(TransferenciaDTO transferenciaDTO) {
 		transferenciaDTO.setDataAgendamento(LocalDate.now());
 
@@ -90,6 +91,7 @@ public class TransferenciaService {
 		}
 	}
 
+	@Transactional
 	private void atualizarSaldoEntreContas(TransferenciaDTO dto, BigDecimal taxa, BigDecimal valorTransferencia) {
 		Conta contaOrigem = contaRepository.getById(dto.getContaOrigem());
 		Conta contaDestino = contaRepository.getById(dto.getContaDestino());

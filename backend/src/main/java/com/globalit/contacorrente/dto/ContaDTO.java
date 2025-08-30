@@ -7,11 +7,11 @@ import com.globalit.contacorrente.entities.Conta;
 public class ContaDTO {
 
 	private Integer id;
-	private Integer numeroConta;
+	private Long numeroConta;
 	private String usuario;
 	private BigDecimal saldo;
 	
-	public ContaDTO(Integer id, Integer numeroConta, String usuario, BigDecimal saldo) {
+	public ContaDTO(Integer id, Long numeroConta, String usuario, BigDecimal saldo) {
 		this.id = id;
 		this.numeroConta = numeroConta;
 		this.usuario = usuario;
@@ -33,11 +33,11 @@ public class ContaDTO {
 		this.id = id;
 	}
 
-	public Integer getNumeroConta() {
+	public Long getNumeroConta() {
 		return numeroConta;
 	}
 
-	public void setNumeroConta(Integer numeroConta) {
+	public void setNumeroConta(Long numeroConta) {
 		this.numeroConta = numeroConta;
 	}
 

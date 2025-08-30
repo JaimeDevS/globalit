@@ -20,7 +20,7 @@ public class Conta {
 	private Integer id;
 	
 	@Column(unique=true)
-	private Integer numeroConta;
+	private Long numeroConta;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
@@ -29,7 +29,7 @@ public class Conta {
 	
 	public Conta() {}
 	
-	public Conta(Integer id, Integer numeroConta, Usuario usuario, BigDecimal saldo) {
+	public Conta(Integer id, Long numeroConta, Usuario usuario, BigDecimal saldo) {
 		this.id = id;
 		this.numeroConta = numeroConta;			
 		this.usuario = usuario;
@@ -44,11 +44,11 @@ public class Conta {
 		this.id = id;
 	}
 
-	public Integer getNumeroConta() {
+	public Long getNumeroConta() {
 		return numeroConta;
 	}
 
-	public void setNumeroConta(Integer numeroConta) {
+	public void setNumeroConta(Long numeroConta) {
 		this.numeroConta = numeroConta;
 	}
 

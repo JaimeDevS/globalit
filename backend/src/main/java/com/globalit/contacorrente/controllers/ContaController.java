@@ -1,5 +1,7 @@
 package com.globalit.contacorrente.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,11 @@ public class ContaController {
 
 	@Autowired
     private ContaService service;
+	
+	@GetMapping
+	public ResponseEntity<List<ContaDTO>> listar() {
+		return ResponseEntity.ok(service.listar());
+	}
 	
 	@GetMapping(value = "/{id}")
     public ResponseEntity<ContaDTO> findById(@PathVariable Integer id) {
