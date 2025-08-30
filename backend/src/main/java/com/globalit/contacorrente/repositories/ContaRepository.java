@@ -8,6 +8,6 @@ import com.globalit.contacorrente.entities.Conta;
 
 public interface ContaRepository extends JpaRepository<Conta, Integer> {
 
-	Optional<Conta> findByNumeroConta(Integer id);
+	Optional<Conta> findByNumeroConta(Integer numeroConta);
 
 }

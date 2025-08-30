@@ -23,8 +23,8 @@ public class ContaService {
 	}
 	
 	@Transactional(readOnly = true)
-	public ContaDTO findByNumeroConta(Integer id) {
-		Conta conta = repository.findByNumeroConta(id)
+	public ContaDTO findByNumeroConta(Integer numeroConta) {
+		Conta conta = repository.findByNumeroConta(numeroConta)
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		return new ContaDTO(conta);
 	}

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.globalit.contacorrente.dto.TransferenciaDTO;
-import com.globalit.contacorrente.entities.Transferencia;
 import com.globalit.contacorrente.services.TransferenciaService;
 
 @RestController
@@ -20,26 +19,22 @@ import com.globalit.contacorrente.services.TransferenciaService;
 public class TransferenciaController {
 
 	@Autowired
-    private TransferenciaService service;
-	
-	@GetMapping(value = "/{id}")
-    public ResponseEntity<TransferenciaDTO> findById(@PathVariable Integer id) {
-		TransferenciaDTO dto = service.findById(id);
-        return ResponseEntity.ok(dto);
-    }
-	
-	/**
-	 * PASSAR PARA DTO *
-	 */
-	
-	@PostMapping
-    public ResponseEntity<Transferencia> agendar(@RequestBody TransferenciaDTO transferencia) {
-        return ResponseEntity.ok(service.agendar(transferencia));
-    }
+	private TransferenciaService service;
 
-    @GetMapping
-    public ResponseEntity<List<Transferencia>> listar() {
-        return ResponseEntity.ok(service.listar());
-    }
-	
+	@GetMapping
+	public ResponseEntity<List<TransferenciaDTO>> listar() {
+		return ResponseEntity.ok(service.listar());
+	}
+
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<TransferenciaDTO> findById(@PathVariable Integer id) {
+		TransferenciaDTO dto = service.findById(id);
+		return ResponseEntity.ok(dto);
+	}
+
+	@PostMapping
+	public ResponseEntity<TransferenciaDTO> agendar(@RequestBody TransferenciaDTO transferencia) {
+		return ResponseEntity.ok(service.transferirSaldoOuAgendarTransferecia(transferencia));
+	}
+
 }

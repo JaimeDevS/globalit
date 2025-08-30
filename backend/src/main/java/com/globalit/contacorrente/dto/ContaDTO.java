@@ -1,5 +1,7 @@
 package com.globalit.contacorrente.dto;
 
+import java.math.BigDecimal;
+
 import com.globalit.contacorrente.entities.Conta;
 
 public class ContaDTO {
@@ -7,9 +9,9 @@ public class ContaDTO {
 	private Integer id;
 	private Integer numeroConta;
 	private String usuario;
-	private Double saldo;
+	private BigDecimal saldo;
 	
-	public ContaDTO(Integer id, Integer numeroConta, String usuario, Double saldo) {
+	public ContaDTO(Integer id, Integer numeroConta, String usuario, BigDecimal saldo) {
 		this.id = id;
 		this.numeroConta = numeroConta;
 		this.usuario = usuario;
@@ -47,11 +49,11 @@ public class ContaDTO {
 		this.usuario = usuario;
 	}
 
-	public Double getSaldo() {
+	public BigDecimal getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	public void setSaldo(BigDecimal saldo) {
 		this.saldo = saldo;
 	}
 	

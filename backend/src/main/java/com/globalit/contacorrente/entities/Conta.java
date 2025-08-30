@@ -1,5 +1,7 @@
 package com.globalit.contacorrente.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,11 +25,11 @@ public class Conta {
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-	private Double saldo;
+	private BigDecimal saldo;
 	
 	public Conta() {}
 	
-	public Conta(Integer id, Integer numeroConta, Usuario usuario, Double saldo) {
+	public Conta(Integer id, Integer numeroConta, Usuario usuario, BigDecimal saldo) {
 		this.id = id;
 		this.numeroConta = numeroConta;			
 		this.usuario = usuario;
@@ -58,11 +60,11 @@ public class Conta {
 		this.usuario = usuario;
 	}
 
-	public Double getSaldo() {
+	public BigDecimal getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	public void setSaldo(BigDecimal saldo) {
 		this.saldo = saldo;
 	}
 	
