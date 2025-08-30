@@ -41,6 +41,12 @@ public class TransferenciaService {
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		return new TransferenciaDTO(transferencia);
 	}
+	
+	@Transactional(readOnly = true)
+	public List<TransferenciaDTO> findByContaOrigem(Long numeroConta) {		
+		List<Transferencia> list = repository.findByContaOrigem_Id(numeroConta);
+		return list.stream().map(TransferenciaDTO::new).collect(Collectors.toList());
+	}
 
 	@Transactional
 	public TransferenciaDTO transferirSaldoOuAgendarTransferecia(TransferenciaDTO transferenciaDTO) {

@@ -31,6 +31,11 @@ public class TransferenciaController {
 		TransferenciaDTO dto = service.findById(id);
 		return ResponseEntity.ok(dto);
 	}
+	
+	@GetMapping(value = "/conta-origem/{contaOrigem}")
+	public ResponseEntity<List<TransferenciaDTO>> findByContaOrigem(@PathVariable Long contaOrigem) {
+		return ResponseEntity.ok(service.findByContaOrigem(contaOrigem));
+	}
 
 	@PostMapping
 	public ResponseEntity<TransferenciaDTO> agendar(@RequestBody TransferenciaDTO transferencia) {

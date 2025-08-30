@@ -29,4 +29,10 @@ public class ContaController {
 		ContaDTO dto = service.findById(id);
         return ResponseEntity.ok(dto);
     }
+	
+	@GetMapping(value = "/numero/{numeroConta}")
+    public ResponseEntity<ContaDTO> findByNumeroConta(@PathVariable Long numeroConta) {
+		ContaDTO dto = service.findByNumeroConta(numeroConta);
+        return ResponseEntity.ok(dto);
+    }
 }
