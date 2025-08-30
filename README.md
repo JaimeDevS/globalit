@@ -91,11 +91,9 @@ projeto-transferencias/
 
 4. Acesse no navegador:  
    ```
-   http://localhost:5173   (Vite)
-   ou
    http://localhost:3000   (Vue CLI)
    ```
-
+> OBS. usar um navegador de teste con CORS desabilitado
 ---
 
 ## ✅ Testando no Postman
