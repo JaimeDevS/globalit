@@ -141,8 +141,8 @@ Exemplo de requisição **POST** para agendar transferência:
 
 ```json
 {
-  "contaOrigem": "1234567890",
-  "contaDestino": "0987654321",
+  "contaOrigem": "1",
+  "contaDestino": "2",
   "valor": 1000.00,
   "dataTransferencia": "2025-09-05"
 }
