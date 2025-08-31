@@ -174,3 +174,10 @@ Exemplo de resposta da API:
   yarn build
   ```
   Os arquivos estarão na pasta `dist/`.
+
+  ---
+  ## ✅ Acesso à aplicação
+  - o acesso deve ser feito pelo número da conta
+  - ao subir a aplicação o banco será populado com dois usuários e duas contas
+  - João - conta: 1234567890
+  - Maria - conta: 9876543210
