@@ -2,7 +2,47 @@
 # 📌 Sistema de Agendamento de Transferências Financeiras  
 
 ## 📝 Descrição
-Aplicação desenvolvida como avaliação prática. O sistema permite que o usuário agende transferências financeiras, aplicando regras de cálculo de taxa conforme a data da transferência.  
+Aplicação desenvolvida como avaliação prática. O sistema permite que o usuário agende transferências financeiras, aplicando regras de cálculo de taxa conforme a data da transferência. 
+
+---
+## 🗃️ Projeto
+<img alt="banco" src="banco.png" />
+Este projeto é uma aplicação bancária simplificada com foco em operações de transferência entre contas, seguindo uma arquitetura em camadas.
+
+1. Tabela usuario
+   - Propósito: Autenticação e controle de acesso
+2. Tabela conta
+   - Propósito: Gerenciamento das contas bancárias
+3. Tabela transferencia
+   - Propósito: Registro de transações financeiras
+
+## 🏗️ Arquitetura da Aplicação
+<img alt="arquitetura" src="arquitetura.png" />
+Frontend (app)
+- Interface para usuários finais
+- Comunica via HTTP/REST com JSON como formato de dados
+
+Backend - Camadas Arquiteturais
+1. Controladores REST
+- Expõem endpoints HTTP (GET, POST, PUT, DELETE)
+- Recebem e validam requisições
+- Devolvem respostas HTTP apropriadas
+
+2. DTOs (Data Transfer Objects)
+- Objetos para transferência de dados entre camadas
+- Isolam a estrutura interna da entidade da API externa
+
+3. Camada de Serviço
+
+- Contém a lógica de negócio principal
+- Valida regras (saldo suficiente, taxas, datas)
+- Coordena transações entre múltiplas entidades
+
+4. Camada de Acesso a Dados
+- Gerencia persistência no banco de dados
+- Utiliza entidades JPA/Hibernate que mapeiam tabelas
+- Implementa operações CRUD e consultas customizadas
+
 
 - **Backend**: Spring Boot (Java 11, H2 Database)  
 - **Frontend**: Vue.js 3 + Vuetify  
